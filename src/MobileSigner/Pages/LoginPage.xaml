@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Almg.MobileSigner.Pages.LoginPage" Title="SILEGIS - Login">
+	<ContentPage.Content>
+    <StackLayout VerticalOptions="StartAndExpand">
+        <Image x:Name="imageLogo" Source="Logotipo.png" HeightRequest="180" Margin="20" />
+    		<StackLayout VerticalOptions="StartAndExpand" x:Name="loginUserName">
+			    <Entry x:Name="entryUsername" Placeholder="" Margin="10, 2"/>
+			    <Entry x:Name="entryPassword" IsPassword="true" Placeholder="" Margin="10, 2" />
+			    <Button x:Name="btnLogin" Text="Login" Clicked="OnLogin" Margin="10, 2"/>
+          <Button x:Name="btnToken" Text="Autorizar com chave" Clicked="OnChangeLoginMethod" Margin="10, 0"/>
+			    <Label x:Name="labelMessage" HorizontalTextAlignment="Center" TextColor="Red"/>
+		    </StackLayout>
+        <StackLayout VerticalOptions="StartAndExpand" x:Name="loginToken" IsVisible="false">
+          <Entry x:Name="entryToken" Placeholder="" Margin="10, 2"/>
+          <Button x:Name="btnLoginToken" Text="Login" Clicked="OnLogin" Margin="10, 2"/>
+          <Button Text="Voltar" Clicked="OnChangeLoginMethod" Margin="10, 0"/>
+        </StackLayout>
+    </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

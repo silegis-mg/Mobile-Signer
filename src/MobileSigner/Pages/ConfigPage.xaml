@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Almg.MobileSigner.Pages.ConfigPage">
+	<ContentPage.Content>
+		<StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+			<Label x:Name="lblMessage" Text="" Margin="20"/>
+			<ActivityIndicator IsRunning="true" IsEnabled="true" HeightRequest="100"/>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

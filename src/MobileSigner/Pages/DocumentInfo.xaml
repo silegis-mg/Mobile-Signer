@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:res="clr-namespace:Almg.MobileSigner.Resources;assembly=Almg.MobileSigner"
+             x:Class="Almg.MobileSigner.Pages.DocumentInfo" Title="Informações da proposição">
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout Spacing="0" Padding="10,0,10,0">
+        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Spacing="10">
+          <ContentView Padding="0,20,0,0">
+            <Label Text="" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" x:Name="lblTitle" />
+          </ContentView>
+          <Label Text="" FontSize="20" HorizontalOptions="Center" VerticalOptions="StartAndExpand" FontAttributes="Bold" x:Name="lblDescription"/>
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Spacing="10" Padding="0,10,0,0">
+          <Label FontSize="14" Text="Creator" HorizontalOptions="FillAndExpand" VerticalOptions="Start" FontAttributes="Bold" x:Name="lblCreator"/>
+          <Label FontSize="14" Text="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" x:Name="lblCreatorValue"/>
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Spacing="10" Padding="0,10,0,0">
+          <Label FontSize="14" Text="Creation Time" HorizontalOptions="FillAndExpand" VerticalOptions="Start" FontAttributes="Bold" x:Name="lblDateTime"/>
+          <Label FontSize="14" Text="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" x:Name="lblDateTimeValue"/>
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Spacing="0" Padding="0,10,0,0">
+          <Label FontSize="14" Text="Authors" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="80" FontAttributes="Bold" x:Name="lblAuthors"/>
+          <StackLayout Orientation="Vertical" Spacing="0" Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+            <ListView x:Name="lstAutores" VerticalOptions="FillAndExpand" SeparatorVisibility="None">
+              <ListView.ItemTemplate>
+                <DataTemplate>
+                  <ViewCell>
+                    <StackLayout Orientation="Horizontal" Spacing="15" Padding="0,0,0,0">
+                      <Label FontSize="14" Text="{Binding Name}" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                      <Label FontSize="14" Text="{Binding Signed}" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="80" TextColor="#0A80D0"/>
+                    </StackLayout>
+                  </ViewCell>
+                </DataTemplate>
+              </ListView.ItemTemplate>
+            </ListView>
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>
+</ContentPage>

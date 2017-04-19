@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Almg.MobileSigner.Pages.AttachmentsPage">
+  <ContentPage.Content>
+    <StackLayout Spacing="0" Padding="0,0,0,0">
+      <ListView x:Name="lstAttachments" VerticalOptions="FillAndExpand" RowHeight="80">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Orientation="Horizontal" Padding="0,0,0,0">
+                <StackLayout Orientation="Vertical" Padding="5,5,0,5" VerticalOptions="Center">
+                  <Image Source = "{Binding Image}" Aspect="AspectFit" Margin="5,5,5,5"/>
+                </StackLayout>  
+                <StackLayout Orientation="Vertical" Spacing="0" Padding="0,0,0,0" HorizontalOptions="FillAndExpand">
+                  <Label FontSize="16" Text="{Binding Nome}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,20,0,0"/>
+                  <Label FontSize="14" Text="{Binding Tipo}" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                </StackLayout>
+                <ActivityIndicator IsRunning="{Binding Loading}" HorizontalOptions="End">
+                  <ActivityIndicator.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="5,5,10,5" Android="20,20,5,20"/>
+                  </ActivityIndicator.Margin>
+                </ActivityIndicator>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

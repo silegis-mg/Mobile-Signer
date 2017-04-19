@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="APP_IS_BEING_CONFIGURED" xml:space="preserve">
+    <value>O aplicativo do SILEGIS está sendo configurado...</value>
+  </data>
+  <data name="LOGGING_IN" xml:space="preserve">
+    <value>Realizando login...</value>
+  </data>
+  <data name="LOGIN" xml:space="preserve">
+    <value>Entrar</value>
+  </data>
+  <data name="LOGIN_ERROR" xml:space="preserve">
+    <value>Não foi possível realizar o login.</value>
+  </data>
+  <data name="LOGIN_TITLE" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="USER" xml:space="preserve">
+    <value>Usuário</value>
+  </data>
+  <data name="WRONG_USERNAME_PASSWORD" xml:space="preserve">
+    <value>Usuário ou senha inválidos.</value>
+  </data>
+  <data name="EXCEPTION_CODE" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="INTERNET_UNAVAILABLE" xml:space="preserve">
+    <value>O dispositivo está offline. Verifique a conexão com a internet e tente novamente.</value>
+  </data>
+  <data name="CERTIFICATE_LOAD_ERROR" xml:space="preserve">
+    <value>Ocorreu uma falha ao obter as configurações</value>
+  </data>
+  <data name="CERTIFICATE_LOAD_SUCCESS" xml:space="preserve">
+    <value>O certificado digital foi carregado com sucesso.</value>
+  </data>
+  <data name="CERTIFICATE_SAVE_ERROR" xml:space="preserve">
+    <value>Falha ao gravar o certificado no armazenamento local</value>
+  </data>
+  <data name="CONFIGURATION_TITLE" xml:space="preserve">
+    <value>Configurações</value>
+  </data>
+  <data name="INPUT_PKCS12_PASSWORD" xml:space="preserve">
+    <value>Digite a senha do certificado digital:</value>
+  </data>
+  <data name="WRONG_PKCS12_PASSWORD" xml:space="preserve">
+    <value>Falha ao abrir o certificado. Verifique a senha digitada e tente novamente.</value>
+  </data>
+  <data name="SIGNATURE_REQUESTS" xml:space="preserve">
+    <value>Requisições</value>
+  </data>
+  <data name="LOADING_DOCUMENT" xml:space="preserve">
+    <value>Carregando documento...</value>
+  </data>
+  <data name="SIGN_DOCUMENT" xml:space="preserve">
+    <value>Assinar Documento</value>
+  </data>
+  <data name="APP_TITLE" xml:space="preserve">
+    <value>Silegis</value>
+  </data>
+  <data name="ERROR_UNABLE_TO_REACH_REQUEST_LIST_API" xml:space="preserve">
+    <value>Não foi possível obter a lista de documentos</value>
+  </data>
+  <data name="TOKEN" xml:space="preserve">
+    <value>Chave</value>
+  </data>
+  <data name="DIGITAL_SIGNATURE_SUCCESS" xml:space="preserve">
+    <value>Assinatura realizada com sucesso.</value>
+  </data>
+  <data name="DOCUMENT_LOADING_FAILED" xml:space="preserve">
+    <value>Ocorreu uma falha ao carregar o documento.</value>
+  </data>
+  <data name="MY_DOCUMENTS" xml:space="preserve">
+    <value>Meu Gabinete</value>
+  </data>
+  <data name="NO_REQUESTS" xml:space="preserve">
+    <value>Nenhuma requisição</value>
+  </data>
+  <data name="OTHER_DOCUMENTS" xml:space="preserve">
+    <value>Outros</value>
+  </data>
+  <data name="UNABLE_TO_OPEN_PRIVATE_KEY" xml:space="preserve">
+    <value>Não foi possível abrir o certificado digital. Verifique a senha e tenta novamente.</value>
+  </data>
+  <data name="UNABLE_TO_SEND_DIGITAL_SIGNATURE" xml:space="preserve">
+    <value>Ocorreu uma falha ao enviar a assinatura digital.</value>
+  </data>
+  <data name="FAILED_TO_LOAD_PDF" xml:space="preserve">
+    <value>Ocorreu uma falha ao abrir o arquivo PDF</value>
+  </data>
+  <data name="SIGNING" xml:space="preserve">
+    <value>Assinando...</value>
+  </data>
+  <data name="SIGN_DOCUMENTS" xml:space="preserve">
+    <value>Assinar Documentos</value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="DIGITAL_SIGNATURE_FAILED" xml:space="preserve">
+    <value>Ocorreu um erro durante a realização da assinatura digital. O documento não foi assinado.</value>
+  </data>
+  <data name="SIGNATURE_CANCELLED" xml:space="preserve">
+    <value>A assinatura digital foi cancelada.</value>
+  </data>
+  <data name="UPDATE_APP" xml:space="preserve">
+    <value>Uma nova versão da aplicação está disponível. Deseja atualizar?</value>
+  </data>
+  <data name="UPDATE_APP_FAIL" xml:space="preserve">
+    <value>Não foi possível verificar atualizações da aplicação.</value>
+  </data>
+  <data name="NO" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="YES" xml:space="preserve">
+    <value>Sim</value>
+  </data>
+  <data name="LOADING_PDF" xml:space="preserve">
+    <value>Carregando PDF...</value>
+  </data>
+  <data name="TOKEN_INVALID_OR_EXPIRED" xml:space="preserve">
+    <value>A chave digitada está incorreta ou expirou.</value>
+  </data>
+  <data name="FAILED_LOADING_SIGNATURE_REQUESTS" xml:space="preserve">
+    <value>Não foi possível carregar as requisições de assinatura.</value>
+  </data>
+  <data name="AUTHORS" xml:space="preserve">
+    <value>Autores</value>
+  </data>
+  <data name="CREATION_TIME" xml:space="preserve">
+    <value>Horário de elaboração</value>
+  </data>
+  <data name="CREATOR" xml:space="preserve">
+    <value>Criador</value>
+  </data>
+  <data name="SIGNED" xml:space="preserve">
+    <value>Assinado</value>
+  </data>
+  <data name="IGNORE_REQUEST_FAILED" xml:space="preserve">
+    <value>Falha ao ignorar a solicitação.</value>
+  </data>
+  <data name="IGNORE_REQUEST_QUESTION" xml:space="preserve">
+    <value>Ao ignorar a solicitação de assinatura ela será removida permanentemente da caixa de entrada e o gabinete solicitante não será informado. Deseja continuar?</value>
+  </data>
+  <data name="IGNORING_REQUEST" xml:space="preserve">
+    <value>Ignorando solicitação...</value>
+  </data>
+  <data name="DIGITAL_SIGNATURE_FAILED_UNKNOW_REASON" xml:space="preserve">
+    <value>Ocorreu um erro imprevisto durante a realização da assinatura digital. O documento não foi assinado.</value>
+  </data>
+  <data name="ATTACHMENTS" xml:space="preserve">
+    <value>Anexos</value>
+  </data>
+  <data name="DOWNLOADING" xml:space="preserve">
+    <value>Download em andamento...</value>
+  </data>
+  <data name="ACTIONS" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="DOCUMENT_METADATA" xml:space="preserve">
+    <value>Informações</value>
+  </data>
+  <data name="IGNORE" xml:space="preserve">
+    <value>Ignorar</value>
+  </data>
+  <data name="LOADING_DOCUMENT_INFO" xml:space="preserve">
+    <value>Carregando informações do documento...</value>
+  </data>
+  <data name="REQUEST_STATUS_FINISHED" xml:space="preserve">
+    <value>Encerrada</value>
+  </data>
+  <data name="REQUEST_STATUS_SIGNED" xml:space="preserve">
+    <value>Atendida</value>
+  </data>
+  <data name="CANCEL_REQUEST" xml:space="preserve">
+    <value>Cancelar requisição</value>
+  </data>
+  <data name="CLOSE" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
+  <data name="IGNORE_REQUEST" xml:space="preserve">
+    <value>Ignorar requisição</value>
+  </data>
+  <data name="FAILED_TO_OPEN_ATTACHMENT" xml:space="preserve">
+    <value>Não foi possível abrir o anexo</value>
+  </data>
+  <data name="ATTACHMENT_FILE_TYPE_NOT_SUPPORTED" xml:space="preserve">
+    <value>O dispositivo não possui nenhum aplicativo capaz de abrir o formato do arquivo.</value>
+  </data>
+  <data name="FINISHED_REQUESTS" xml:space="preserve">
+    <value>Minutas assinadas</value>
+  </data>
+  <data name="CANCELING_REQUEST" xml:space="preserve">
+    <value>Cancelando solicitação...</value>
+  </data>
+  <data name="CANCEL_REQUEST_FAILED" xml:space="preserve">
+    <value>Ocorreu uma falha ao cancelar a solicitação.</value>
+  </data>
+  <data name="CANCEL_REQUEST_QUESTION" xml:space="preserve">
+    <value>A solicitação será removida permanentente da caixa de entrada. Deseja continuar?</value>
+  </data>
+  <data name="DENYING_REQUEST" xml:space="preserve">
+    <value>Recusando solicitação...</value>
+  </data>
+  <data name="DENY_REQUEST" xml:space="preserve">
+    <value>Recusar requisição</value>
+  </data>
+  <data name="DENY_REQUEST_FAILED" xml:space="preserve">
+    <value>Ocorreu uma falha ao recusar a assinatura.</value>
+  </data>
+  <data name="DENY_REQUEST_QUESTION" xml:space="preserve">
+    <value>Ao recusar a solicitação de assinatura ela será removida permanentemente da caixa de entrada e o SILEGIS irá informar o gabinete solicitante da recusa. Deseja continuar?</value>
+  </data>
+  <data name="IGNORAR_ASSINATURA" xml:space="preserve">
+    <value>Ignorar assinatura</value>
+  </data>
+  <data name="IGNORAR_ASSINATURA_FAILED" xml:space="preserve">
+    <value>Ocorreu uma falha ao ignorar a assinatura.</value>
+  </data>
+  <data name="IGNORAR_ASSINATURA_PROGRESS" xml:space="preserve">
+    <value>Ignorando assinatura...</value>
+  </data>
+  <data name="IGNORAR_ASSINATURA_QUESTION" xml:space="preserve">
+    <value>Deseja ignorar a assinatura?</value>
+  </data>
+  <data name="PROTOCOLAR" xml:space="preserve">
+    <value>Protocolar documento</value>
+  </data>
+  <data name="PROTOCOLAR_FAILED" xml:space="preserve">
+    <value>Falha ao protocolar o documento.</value>
+  </data>
+  <data name="PROTOCOLAR_PROGRESS" xml:space="preserve">
+    <value>Aguarde, protocolando o documento...</value>
+  </data>
+  <data name="PROTOCOLAR_QUESTION" xml:space="preserve">
+    <value>Tem certeza que deseja protocolar o documento?</value>
+  </data>
+  <data name="RECUSAR_ASSINATURA" xml:space="preserve">
+    <value>Recusar assinatura</value>
+  </data>
+  <data name="RECUSAR_ASSINATURA_FAILED" xml:space="preserve">
+    <value>Ocorreu uma falha ao recusar a assinatura.</value>
+  </data>
+  <data name="RECUSAR_ASSINATURA_PROGRESS" xml:space="preserve">
+    <value>Recusando a assinatura...</value>
+  </data>
+  <data name="RECUSAR_ASSINATURA_QUESTION" xml:space="preserve">
+    <value>Deseja recusar a assinatura?</value>
+  </data>
+  <data name="REMOVER_ASSINATURA" xml:space="preserve">
+    <value>Remover assinatura</value>
+  </data>
+  <data name="REMOVER_ASSINATURA_FAILED" xml:space="preserve">
+    <value>Falha ao remover a assinatura.</value>
+  </data>
+  <data name="REMOVER_ASSINATURA_PROGRESS" xml:space="preserve">
+    <value>Removendo assinatura...</value>
+  </data>
+  <data name="REMOVER_ASSINATURA_QUESTION" xml:space="preserve">
+    <value>Deseja remover a assinatura?</value>
+  </data>
+  <data name="ASK_PASSWORD_ERROR" xml:space="preserve">
+    <value>Ocorreu uma falha ao obter a senha do certificado.</value>
+  </data>
+  <data name="HIDE_ARCHIVED" xml:space="preserve">
+    <value>Ocultar arquivadas</value>
+  </data>
+  <data name="SHOW_ARCHIVED" xml:space="preserve">
+    <value>Exibir arquivadas</value>
+  </data>
+  <data name="ARCHIVE" xml:space="preserve">
+    <value>Arquivar</value>
+  </data>
+  <data name="ARCHIVING" xml:space="preserve">
+    <value>Arquivando</value>
+  </data>
+  <data name="LOGOUT_CONFIRM" xml:space="preserve">
+    <value>Tem certeza que deseja realizar o logout da aplicação? Caso afirmativo, será necessário habilitar o dispositivo novamente para acessar o Silegis.</value>
+  </data>
+  <data name="UNAUTHORIZED_HTTP" xml:space="preserve">
+    <value>O acesso ao serviço do Silegis foi negado. Será necessário realizar o login novamente para acessar o sistema.</value>
+  </data>
+  <data name="VERSION" xml:space="preserve">
+    <value>Versão</value>
+  </data>
+</root>

@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Build.Download.0.2.2\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.2.2\build\Xamarin.Build.Download.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{93362C73-AD00-4005-A841-150B7BC38A94}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MobileSigner.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>MobileSigneriOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Distribution: Assembleia Legislativa do Estado de Minas Gerais</CodesignKey>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchSdkVersion>10.2</MtouchSdkVersion>
+    <CodesignProvision></CodesignProvision>
+    <MtouchExtraArgs>-nolinkaway </MtouchExtraArgs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>
+    </DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignKey>iPhone Distribution: Assembleia Legislativa do Estado de Minas Gerais</CodesignKey>
+    <CodesignProvision>4056a359-10ba-402b-a257-ffbf4503f249</CodesignProvision>
+    <BuildIpa>true</BuildIpa>
+    <IpaPackageName>br.gov.almg.silegis</IpaPackageName>
+    <IpaMetadata>silegis.plist</IpaMetadata>
+    <MtouchSdkVersion>10.2</MtouchSdkVersion>
+    <MtouchExtraArgs>--nolinkaway</MtouchExtraArgs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchFloat32>true</MtouchFloat32>
+    <MtouchDebug>true</MtouchDebug>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <CodesignKey>iPhone Distribution: Assembleia Legislativa do Estado de Minas Gerais</CodesignKey>
+    <IpaPackageName>br.gov.almg.mobilesigner</IpaPackageName>
+    <BuildIpa>true</BuildIpa>
+    <IpaIncludeArtwork>true</IpaIncludeArtwork>
+    <CodesignProvision>Silegis Distribution Profile</CodesignProvision>
+    <MtouchSdkVersion>10.2</MtouchSdkVersion>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchExtraArgs>--nolinkaway</MtouchExtraArgs>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="crypto">
+      <HintPath>..\packages\Portable.BouncyCastle-Signed.1.7.0.2\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch10+MonoAndroid10+xamarinmac20+xamarinios10\crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS">
+      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.Support.iOS">
+      <HintPath>..\packages\Acr.Support.2.1.0\lib\Xamarin.iOS10\Acr.Support.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\packages\Splat.1.6.2\lib\Xamarin.iOS10\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs">
+      <HintPath>..\packages\Acr.UserDialogs.6.3.1\lib\Xamarin.iOS10\Acr.UserDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface">
+      <HintPath>..\packages\Acr.UserDialogs.6.3.1\lib\Xamarin.iOS10\Acr.UserDialogs.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.DeviceInfo">
+      <HintPath>..\packages\Acr.DeviceInfo.4.0.2\lib\Xamarin.iOS10\Acr.DeviceInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.DeviceInfo.Interface">
+      <HintPath>..\packages\Acr.DeviceInfo.4.0.2\lib\Xamarin.iOS10\Acr.DeviceInfo.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="HockeySDK">
+      <HintPath>..\packages\HockeySDK.Xamarin.4.1.0\lib\Xamarin.iOS10\HockeySDK.dll</HintPath>
+    </Reference>
+    <Reference Include="HockeySDK.iOSBindings">
+      <HintPath>..\packages\HockeySDK.Xamarin.4.1.0\lib\Xamarin.iOS10\HockeySDK.iOSBindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Core">
+      <HintPath>..\packages\Xamarin.Firebase.iOS.Core.3.4.4\lib\Xamarin.iOS10\Firebase.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.InstanceID">
+      <HintPath>..\packages\Xamarin.Firebase.iOS.InstanceID.1.0.8\lib\Xamarin.iOS10\Firebase.InstanceID.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Analytics">
+      <HintPath>..\packages\Xamarin.Firebase.iOS.Analytics.3.5.1\lib\Xamarin.iOS10\Firebase.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.CloudMessaging">
+      <HintPath>..\packages\Xamarin.Firebase.iOS.CloudMessaging.1.2.1\lib\Xamarin.iOS10\Firebase.CloudMessaging.dll</HintPath>
+    </Reference>
+    <Reference Include="ToastIOS">
+      <HintPath>..\..\..\..\..\..\Componentes\ToastIOS-1.6\lib\ios-unified\ToastIOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Almg.Signer.XAdES">
+      <HintPath>..\packages\Almg.Signer.XAdES.1.1.0\lib\Xamarin.iOS10\Almg.Signer.XAdES.dll</HintPath>
+    </Reference>
+    <Reference Include="Almg.Signer.XAdES.Interfaces">
+      <HintPath>..\packages\Almg.Signer.XAdES.1.1.0\lib\Xamarin.iOS10\Almg.Signer.XAdES.Interfaces.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\apple-icon-29x29.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\apple-icon-58x58.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\apple-icon-87x87.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\apple-icon-80x80.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\apple-icon-120x120.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\apple-icon-57x57.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\apple-icon-114x114.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\apple-icon-180x180.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\apple-icon-72x72.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\apple-icon-144x144.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\apple-icon-76x76.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+    <None Include="Content\pdf\web\cmaps\78-EUC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\78-EUC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\78-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\78-RKSJ-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\78-RKSJ-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\78-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\78ms-RKSJ-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\78ms-RKSJ-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\83pv-RKSJ-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\90ms-RKSJ-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\90ms-RKSJ-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\90msp-RKSJ-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\90msp-RKSJ-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\90pv-RKSJ-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\90pv-RKSJ-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Add-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Add-RKSJ-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Add-RKSJ-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Add-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-CNS1-0.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-CNS1-1.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-CNS1-2.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-CNS1-3.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-CNS1-4.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-CNS1-5.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-CNS1-6.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-CNS1-UCS2.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-GB1-0.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-GB1-1.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-GB1-2.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-GB1-3.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-GB1-4.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-GB1-5.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-GB1-UCS2.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Japan1-0.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Japan1-1.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Japan1-2.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Japan1-3.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Japan1-4.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Japan1-5.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Japan1-6.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Japan1-UCS2.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Korea1-0.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Korea1-1.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Korea1-2.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Adobe-Korea1-UCS2.bcmap" />
+    <None Include="Content\pdf\web\cmaps\B5-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\B5-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\B5pc-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\B5pc-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\CNS-EUC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\CNS-EUC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\CNS1-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\CNS1-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\CNS2-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\CNS2-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\ETHK-B5-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\ETHK-B5-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\ETen-B5-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\ETen-B5-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\ETenms-B5-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\ETenms-B5-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\EUC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\EUC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Ext-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Ext-RKSJ-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Ext-RKSJ-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Ext-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GB-EUC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GB-EUC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GB-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GB-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBK-EUC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBK-EUC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBK2K-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBK2K-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBKp-EUC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBKp-EUC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBT-EUC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBT-EUC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBT-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBT-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBTpc-EUC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBTpc-EUC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBpc-EUC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\GBpc-EUC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKdla-B5-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKdla-B5-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKdlb-B5-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKdlb-B5-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKgccs-B5-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKgccs-B5-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKm314-B5-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKm314-B5-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKm471-B5-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKm471-B5-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKscs-B5-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\HKscs-B5-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Hankaku.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Hiragana.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSC-EUC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSC-EUC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSC-Johab-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSC-Johab-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSCms-UHC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSCms-UHC-HW-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSCms-UHC-HW-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSCms-UHC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSCpc-EUC-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\KSCpc-EUC-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Katakana.bcmap" />
+    <None Include="Content\pdf\web\cmaps\LICENSE" />
+    <None Include="Content\pdf\web\cmaps\NWP-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\NWP-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\RKSJ-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\RKSJ-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\Roman.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniCNS-UCS2-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniCNS-UCS2-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniCNS-UTF16-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniCNS-UTF16-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniCNS-UTF32-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniCNS-UTF32-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniCNS-UTF8-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniCNS-UTF8-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniGB-UCS2-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniGB-UCS2-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniGB-UTF16-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniGB-UTF16-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniGB-UTF32-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniGB-UTF32-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniGB-UTF8-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniGB-UTF8-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS-UCS2-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS-UCS2-HW-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS-UCS2-HW-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS-UCS2-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS-UTF16-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS-UTF16-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS-UTF32-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS-UTF32-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS-UTF8-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS-UTF8-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS2004-UTF16-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS2004-UTF16-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS2004-UTF32-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS2004-UTF32-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS2004-UTF8-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJIS2004-UTF8-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJISPro-UCS2-HW-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJISPro-UCS2-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJISPro-UTF8-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJISX0213-UTF32-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJISX0213-UTF32-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJISX02132004-UTF32-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniJISX02132004-UTF32-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniKS-UCS2-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniKS-UCS2-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniKS-UTF16-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniKS-UTF16-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniKS-UTF32-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniKS-UTF32-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniKS-UTF8-H.bcmap" />
+    <None Include="Content\pdf\web\cmaps\UniKS-UTF8-V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\V.bcmap" />
+    <None Include="Content\pdf\web\cmaps\WP-Symbol.bcmap" />
+    <None Include="Content\pdf\web\images\annotation-check.svg" />
+    <None Include="Content\pdf\web\images\annotation-comment.svg" />
+    <None Include="Content\pdf\web\images\annotation-help.svg" />
+    <None Include="Content\pdf\web\images\annotation-insert.svg" />
+    <None Include="Content\pdf\web\images\annotation-key.svg" />
+    <None Include="Content\pdf\web\images\annotation-newparagraph.svg" />
+    <None Include="Content\pdf\web\images\annotation-noicon.svg" />
+    <None Include="Content\pdf\web\images\annotation-note.svg" />
+    <None Include="Content\pdf\web\images\annotation-paragraph.svg" />
+    <None Include="Content\pdf\web\images\grab.cur" />
+    <None Include="Content\pdf\web\images\grabbing.cur" />
+    <None Include="Content\pdf\web\images\loading-icon.gif" />
+    <None Include="Content\pdf\web\locale\locale.properties" />
+    <None Include="Content\pdf\web\locale\ach\viewer.properties" />
+    <None Include="Content\pdf\web\locale\af\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ak\viewer.properties" />
+    <None Include="Content\pdf\web\locale\an\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ar\viewer.properties" />
+    <None Include="Content\pdf\web\locale\as\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ast\viewer.properties" />
+    <None Include="Content\pdf\web\locale\az\viewer.properties" />
+    <None Include="Content\pdf\web\locale\be\viewer.properties" />
+    <None Include="Content\pdf\web\locale\bg\viewer.properties" />
+    <None Include="Content\pdf\web\locale\bn-BD\viewer.properties" />
+    <None Include="Content\pdf\web\locale\bn-IN\viewer.properties" />
+    <None Include="Content\pdf\web\locale\br\viewer.properties" />
+    <None Include="Content\pdf\web\locale\bs\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ca\viewer.properties" />
+    <None Include="Content\pdf\web\locale\cs\viewer.properties" />
+    <None Include="Content\pdf\web\locale\csb\viewer.properties" />
+    <None Include="Content\pdf\web\locale\cy\viewer.properties" />
+    <None Include="Content\pdf\web\locale\da\viewer.properties" />
+    <None Include="Content\pdf\web\locale\de\viewer.properties" />
+    <None Include="Content\pdf\web\locale\el\viewer.properties" />
+    <None Include="Content\pdf\web\locale\en-GB\viewer.properties" />
+    <None Include="Content\pdf\web\locale\en-US\viewer.properties" />
+    <None Include="Content\pdf\web\locale\en-ZA\viewer.properties" />
+    <None Include="Content\pdf\web\locale\eo\viewer.properties" />
+    <None Include="Content\pdf\web\locale\es-AR\viewer.properties" />
+    <None Include="Content\pdf\web\locale\es-CL\viewer.properties" />
+    <None Include="Content\pdf\web\locale\es-ES\viewer.properties" />
+    <None Include="Content\pdf\web\locale\es-MX\viewer.properties" />
+    <None Include="Content\pdf\web\locale\et\viewer.properties" />
+    <None Include="Content\pdf\web\locale\eu\viewer.properties" />
+    <None Include="Content\pdf\web\locale\fa\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ff\viewer.properties" />
+    <None Include="Content\pdf\web\locale\fi\viewer.properties" />
+    <None Include="Content\pdf\web\locale\fr\viewer.properties" />
+    <None Include="Content\pdf\web\locale\fy-NL\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ga-IE\viewer.properties" />
+    <None Include="Content\pdf\web\locale\gd\viewer.properties" />
+    <None Include="Content\pdf\web\locale\gl\viewer.properties" />
+    <None Include="Content\pdf\web\locale\gu-IN\viewer.properties" />
+    <None Include="Content\pdf\web\locale\he\viewer.properties" />
+    <None Include="Content\pdf\web\locale\hi-IN\viewer.properties" />
+    <None Include="Content\pdf\web\locale\hr\viewer.properties" />
+    <None Include="Content\pdf\web\locale\hu\viewer.properties" />
+    <None Include="Content\pdf\web\locale\hy-AM\viewer.properties" />
+    <None Include="Content\pdf\web\locale\id\viewer.properties" />
+    <None Include="Content\pdf\web\locale\is\viewer.properties" />
+    <None Include="Content\pdf\web\locale\it\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ja\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ka\viewer.properties" />
+    <None Include="Content\pdf\web\locale\kk\viewer.properties" />
+    <None Include="Content\pdf\web\locale\km\viewer.properties" />
+    <None Include="Content\pdf\web\locale\kn\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ko\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ku\viewer.properties" />
+    <None Include="Content\pdf\web\locale\lg\viewer.properties" />
+    <None Include="Content\pdf\web\locale\lij\viewer.properties" />
+    <None Include="Content\pdf\web\locale\lt\viewer.properties" />
+    <None Include="Content\pdf\web\locale\lv\viewer.properties" />
+    <None Include="Content\pdf\web\locale\mai\viewer.properties" />
+    <None Include="Content\pdf\web\locale\mk\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ml\viewer.properties" />
+    <None Include="Content\pdf\web\locale\mn\viewer.properties" />
+    <None Include="Content\pdf\web\locale\mr\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ms\viewer.properties" />
+    <None Include="Content\pdf\web\locale\my\viewer.properties" />
+    <None Include="Content\pdf\web\locale\nb-NO\viewer.properties" />
+    <None Include="Content\pdf\web\locale\nl\viewer.properties" />
+    <None Include="Content\pdf\web\locale\nn-NO\viewer.properties" />
+    <None Include="Content\pdf\web\locale\nso\viewer.properties" />
+    <None Include="Content\pdf\web\locale\oc\viewer.properties" />
+    <None Include="Content\pdf\web\locale\or\viewer.properties" />
+    <None Include="Content\pdf\web\locale\pa-IN\viewer.properties" />
+    <None Include="Content\pdf\web\locale\pl\viewer.properties" />
+    <None Include="Content\pdf\web\locale\pt-BR\viewer.properties" />
+    <None Include="Content\pdf\web\locale\pt-PT\viewer.properties" />
+    <None Include="Content\pdf\web\locale\rm\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ro\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ru\viewer.properties" />
+    <None Include="Content\pdf\web\locale\rw\viewer.properties" />
+    <None Include="Content\pdf\web\locale\sah\viewer.properties" />
+    <None Include="Content\pdf\web\locale\si\viewer.properties" />
+    <None Include="Content\pdf\web\locale\sk\viewer.properties" />
+    <None Include="Content\pdf\web\locale\sl\viewer.properties" />
+    <None Include="Content\pdf\web\locale\son\viewer.properties" />
+    <None Include="Content\pdf\web\locale\sq\viewer.properties" />
+    <None Include="Content\pdf\web\locale\sr\viewer.properties" />
+    <None Include="Content\pdf\web\locale\sv-SE\viewer.properties" />
+    <None Include="Content\pdf\web\locale\sw\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ta\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ta-LK\viewer.properties" />
+    <None Include="Content\pdf\web\locale\te\viewer.properties" />
+    <None Include="Content\pdf\web\locale\th\viewer.properties" />
+    <None Include="Content\pdf\web\locale\tl\viewer.properties" />
+    <None Include="Content\pdf\web\locale\tn\viewer.properties" />
+    <None Include="Content\pdf\web\locale\tr\viewer.properties" />
+    <None Include="Content\pdf\web\locale\uk\viewer.properties" />
+    <None Include="Content\pdf\web\locale\ur\viewer.properties" />
+    <None Include="Content\pdf\web\locale\vi\viewer.properties" />
+    <None Include="Content\pdf\web\locale\wo\viewer.properties" />
+    <None Include="Content\pdf\web\locale\xh\viewer.properties" />
+    <None Include="Content\pdf\web\locale\zh-CN\viewer.properties" />
+    <None Include="Content\pdf\web\locale\zh-TW\viewer.properties" />
+    <None Include="Content\pdf\web\locale\zu\viewer.properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BadgeTabbedPageRenderer.cs" />
+    <Compile Include="BaseURLiOS.cs" />
+    <Compile Include="CustomListViewRenderer.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="CustomWebViewRenderer.cs" />
+    <Compile Include="ResourceLoaderiOS.cs" />
+    <Compile Include="XML\XSLTTransformerImpl.cs" />
+    <Compile Include="TableViewRenderer.cs" />
+    <Compile Include="UpdateAppImpl.cs" />
+    <Compile Include="..\Droid\FileSystem\NativeFileSystem.cs">
+      <Link>FileSystem\NativeFileSystem.cs</Link>
+    </Compile>
+    <Compile Include="LogImpl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="GoogleService-Info.plist" />
+    <BundleResource Include="..\Droid\Assets\documento.xsl">
+      <Link>Content\documento.xsl</Link>
+    </BundleResource>
+    <BundleResource Include="Resources\question.png" />
+    <BundleResource Include="..\Droid\Assets\PA_AD_RA_v2_3.xml">
+      <Link>Content\PA_AD_RA_v2_3.xml</Link>
+    </BundleResource>
+    <BundleResource Include="Resources\menu%402x.png" />
+    <BundleResource Include="Resources\menu.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\MobileSigner\MobileSigner.csproj">
+      <Project>{5DB916B0-D360-4FA7-BC37-124049890257}</Project>
+      <Name>MobileSigner</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Logotipo.png" />
+    <BundleResource Include="Resources\document.png" />
+    <BundleResource Include="Resources\hamburger.png" />
+    <BundleResource Include="Resources\logout.png" />
+    <BundleResource Include="Resources\pencil.png" />
+    <BundleResource Include="Resources\share.png" />
+    <BundleResource Include="Content\pdf\web\images\findbarButton-next-rtl.png" />
+    <BundleResource Include="Content\pdf\web\images\findbarButton-next-rtl%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\findbarButton-next.png" />
+    <BundleResource Include="Content\pdf\web\images\findbarButton-next%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\findbarButton-previous-rtl.png" />
+    <BundleResource Include="Content\pdf\web\images\findbarButton-previous-rtl%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\findbarButton-previous.png" />
+    <BundleResource Include="Content\pdf\web\images\findbarButton-previous%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\loading-small.png" />
+    <BundleResource Include="Content\pdf\web\images\loading-small%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-documentProperties.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-documentProperties%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-firstPage.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-firstPage%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-handTool.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-handTool%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-lastPage.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-lastPage%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-rotateCcw.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-rotateCcw%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-rotateCw.png" />
+    <BundleResource Include="Content\pdf\web\images\secondaryToolbarButton-rotateCw%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\shadow.png" />
+    <BundleResource Include="Content\pdf\web\images\texture.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-bookmark.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-bookmark%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-download.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-download%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-menuArrows.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-menuArrows%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-openFile.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-openFile%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-pageDown-rtl.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-pageDown-rtl%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-pageDown.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-pageDown%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-pageUp-rtl.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-pageUp-rtl%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-pageUp.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-pageUp%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-presentationMode.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-presentationMode%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-print.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-print%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-search.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-search%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-secondaryToolbarToggle-rtl.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-secondaryToolbarToggle-rtl%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-secondaryToolbarToggle.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-secondaryToolbarToggle%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-sidebarToggle-rtl.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-sidebarToggle-rtl%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-sidebarToggle.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-sidebarToggle%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-viewAttachments.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-viewAttachments%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-viewOutline-rtl.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-viewOutline-rtl%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-viewOutline.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-viewOutline%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-viewThumbnail.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-viewThumbnail%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-zoomIn.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-zoomIn%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-zoomOut.png" />
+    <BundleResource Include="Content\pdf\web\images\toolbarButton-zoomOut%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\treeitem-collapsed-rtl.png" />
+    <BundleResource Include="Content\pdf\web\images\treeitem-collapsed-rtl%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\treeitem-collapsed.png" />
+    <BundleResource Include="Content\pdf\web\images\treeitem-collapsed%402x.png" />
+    <BundleResource Include="Content\pdf\web\images\treeitem-expanded.png" />
+    <BundleResource Include="Content\pdf\web\images\treeitem-expanded%402x.png" />
+    <BundleResource Include="Content\pdf\web\compatibility.js" />
+    <BundleResource Include="Content\pdf\web\customview.js" />
+    <BundleResource Include="Content\pdf\web\debugger.js" />
+    <BundleResource Include="Content\pdf\web\l10n.js" />
+    <BundleResource Include="Content\pdf\web\pdf.worker.js" />
+    <BundleResource Include="Content\pdf\web\viewer.css" />
+    <BundleResource Include="Content\pdf\web\viewer.js" />
+    <BundleResource Include="Content\pdf\web\viewer.html" />
+    <BundleResource Include="Content\pdf\web\index.html" />
+    <BundleResource Include="Content\pdf\web\indexv.html" />
+    <BundleResource Include="Content\pdf\build\pdf.js" />
+    <BundleResource Include="Content\pdf\build\pdf.worker.js" />
+    <BundleResource Include="Resources\users.png" />
+    <BundleResource Include="Resources\users%402x.png" />
+    <BundleResource Include="Resources\user.png" />
+    <BundleResource Include="Resources\user%402x.png" />
+    <BundleResource Include="Resources\hamburger%402x.png" />
+    <BundleResource Include="Resources\pdf%402x.png" />
+    <BundleResource Include="Resources\pdf.png" />
+    <BundleResource Include="Resources\text%402x.png" />
+    <BundleResource Include="Resources\text.png" />
+    <BundleResource Include="Resources\sign.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.2.2\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.2.2\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.iOS.Core.3.4.4\build\Xamarin.Firebase.iOS.Core.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.Core.3.4.4\build\Xamarin.Firebase.iOS.Core.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.iOS.InstanceID.1.0.8\build\Xamarin.Firebase.iOS.InstanceID.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.InstanceID.1.0.8\build\Xamarin.Firebase.iOS.InstanceID.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.iOS.Analytics.3.5.1\build\Xamarin.Firebase.iOS.Analytics.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.Analytics.3.5.1\build\Xamarin.Firebase.iOS.Analytics.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.iOS.CloudMessaging.1.2.1\build\Xamarin.Firebase.iOS.CloudMessaging.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.CloudMessaging.1.2.1\build\Xamarin.Firebase.iOS.CloudMessaging.targets')" />
+</Project>
