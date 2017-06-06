@@ -40,13 +40,15 @@ namespace Almg.MobileSigner.Helpers
                 task.SetResult(par);
             };
 
-            UserDialogs.Instance.Confirm(new ConfirmConfig()
-                                              .SetMessage(message)
-                                              .SetTitle(title)
-                                              .SetOkText(AppResources.YES)
-                                              .SetCancelText(AppResources.NO)
-                                              .SetAction(action));
-
+			Device.BeginInvokeOnMainThread(() =>
+			{
+					UserDialogs.Instance.Confirm(new ConfirmConfig()
+													  .SetMessage(message)
+													  .SetTitle(title)
+													  .SetOkText(AppResources.YES)
+													  .SetCancelText(AppResources.NO)
+													  .SetAction(action));
+			});
             return task.Task;
         }
 
