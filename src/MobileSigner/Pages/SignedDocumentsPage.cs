@@ -243,8 +243,14 @@ namespace Almg.MobileSigner.Pages
                 }
             };
 
+			bool showingActionSheet = false;
             listView.LongClicked += async (sender, e) =>
             {
+				if (showingActionSheet)
+				{
+					return;
+				}
+
                 SignedDocument selected = (SignedDocument)e.Item;
 
                 List<string> buttons = new List<string>
@@ -266,8 +272,10 @@ namespace Almg.MobileSigner.Pages
                 {
                     buttons.AddRange(dictActions.Keys);
                 }
-                
+
+				showingActionSheet = true;
                 var selectedActionName = await this.DisplayActionSheet(AppResources.ACTIONS, AppResources.CANCEL, null, buttons.ToArray());
+				showingActionSheet = false;
 
                 if(string.IsNullOrEmpty(selectedActionName))
                 {
