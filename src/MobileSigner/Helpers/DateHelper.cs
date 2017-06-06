@@ -14,7 +14,7 @@ namespace Almg.MobileSigner.Helpers
             if(now.Date == date.Date)
             {
                 //same day
-                return date.ToString("hh:mm");
+                return date.ToString("HH:mm");
             } else
             {
                 if (now.Year != date.Year)
