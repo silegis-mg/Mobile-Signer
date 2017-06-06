@@ -20,8 +20,8 @@ namespace Almg.MobileSigner.Pages
         {
             public AuthorViewModel(Author author)
             {
-                this.Name = author.Nome;
-                this.Signed = author.Assinado?AppResources.SIGNED:"";
+                this.Name = author.Name;
+                this.Signed = author.Status?.Description;
             }
 
             public string Name { get; set; }

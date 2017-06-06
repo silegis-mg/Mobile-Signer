@@ -35,6 +35,11 @@ namespace Almg.MobileSigner.Controllers
                 failedMessage = AppResources.ResourceManager.GetString("DEFAULT_ACTION_FAILED");
             }
 
+            if(!string.IsNullOrEmpty(action.ConfirmMessage))
+            {
+                questionMessage = action.ConfirmMessage;
+            }
+
             var ok = await DialogHelper.ShowConfirm(AppResources.APP_TITLE, questionMessage);
             if (ok)
             {

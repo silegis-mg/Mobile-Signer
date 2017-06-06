@@ -29,7 +29,7 @@
                   <ViewCell>
                     <StackLayout Orientation="Horizontal" Spacing="15" Padding="0,0,0,0">
                       <Label FontSize="14" Text="{Binding Name}" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
-                      <Label FontSize="14" Text="{Binding Signed}" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="80" TextColor="#0A80D0"/>
+                      <Label FontSize="12" Text="{Binding Signed}" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="120" TextColor="#0A80D0"/>
                     </StackLayout>
                   </ViewCell>
                 </DataTemplate>

@@ -81,12 +81,14 @@ namespace Almg.MobileSigner.Model
         public string Method { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }
+        public string ConfirmMessage { get; set; }
 
         public InboxMessageAction(InboxAction action)
         {
             this.Method = action.Method;
             this.Name = action.Name;
             this.Url = action.Url;
+            this.ConfirmMessage = action.ConfirmMessage;
         }
     }
 }

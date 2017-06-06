@@ -56,6 +56,8 @@ namespace Almg.MobileSigner.Model.Inbox
         [JsonProperty("nome")]
         public string Name { get; set; }
         public string Url { get; set; }
+        [JsonProperty("mensagemConfirmacao")]
+        public string ConfirmMessage { get; set; }
     }
 
     public class InboxMessage<T> 
