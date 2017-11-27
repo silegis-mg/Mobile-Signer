@@ -405,4 +405,7 @@
   <data name="VERSION" xml:space="preserve">
     <value>Versão</value>
   </data>
+  <data name="CERTIFICATE_EXPIRED" xml:space="preserve">
+    <value>O certificado digital cadastrado no aplicativo está expirado e não pode ser utilizado para realizar novas assinaturas.</value>
+  </data>
 </root>

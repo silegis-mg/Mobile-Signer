@@ -1,9 +1,11 @@
 ﻿using Acr.UserDialogs;
+using Almg.MobileSigner.Exceptions;
 using Almg.MobileSigner.Model;
 using Almg.MobileSigner.Resources;
 using Almg.MobileSigner.Services;
 using Almg.Signer.XAdES;
 using Almg.Signer.XAdES.Interfaces;
+using Org.BouncyCastle.X509;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -50,6 +52,12 @@ namespace Almg.MobileSigner.Helpers
 
                     if (pfxEntry != null)
                     {
+
+                        if (!pfxEntry.Certificate.IsValidNow)
+                        {
+                            throw new CertificateExpiredError();
+                        }
+
                         var xadesSigner = XAdESCrossPlatformSigner.Current;
                         using (DialogHelper.ShowProgress(AppResources.SIGNING))
                         {
@@ -83,31 +91,24 @@ namespace Almg.MobileSigner.Helpers
                     }
                 }
             }
-            catch (TaskCanceledException ex1)
+            catch (TaskCanceledException ex)
             {
-                throw new DigitalSignatureError(AppResources.SIGNATURE_CANCELLED, ex1);
+                throw new DigitalSignatureError(AppResources.SIGNATURE_CANCELLED, ex);
             }
-            catch(HttpException ex2)
+            catch(HttpException ex)
             {
-                throw new DigitalSignatureError(AppResources.DIGITAL_SIGNATURE_FAILED, ex2);
+                throw new DigitalSignatureError(AppResources.DIGITAL_SIGNATURE_FAILED, ex);
             }
-            catch (Exception ex3)
+            catch(DigitalSignatureError ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 //TODO: logar esse erro no servidor
                 //UserDialogs.Instance.Alert(e.Message, AppResources.APP_TITLE, AppResources.OK);
-                throw new DigitalSignatureError(AppResources.DIGITAL_SIGNATURE_FAILED_UNKNOW_REASON, ex3); ;
+                throw new DigitalSignatureError(AppResources.DIGITAL_SIGNATURE_FAILED_UNKNOW_REASON, ex); ;
             }
-        }
-    }
-    
-    public class DigitalSignatureError: Exception
-    {
-        public DigitalSignatureError(string message, Exception e) : base(message, e)
-        {
-        }
-
-        public DigitalSignatureError(string message): base(message) 
-        {
         }
     }
 }

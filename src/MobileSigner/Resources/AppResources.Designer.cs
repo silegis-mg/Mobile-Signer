@@ -188,6 +188,16 @@ namespace Almg.MobileSigner.Resources {
         }
         
         /// <summary>
+        /// <summary>
+        ///   Looks up a localized string similar to O certificado digital cadastrado no aplicativo está expirado e não pode ser utilizado para realizar novas assinaturas..
+        /// </summary>
+        public static string CERTIFICATE_EXPIRED {
+            get {
+                return ResourceManager.GetString("CERTIFICATE_EXPIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ocorreu uma falha ao obter as configurações.
         /// </summary>
         public static string CERTIFICATE_LOAD_ERROR {

@@ -45,6 +45,8 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\SignatureRequestController.cs" />
+    <Compile Include="Exceptions\CertificateExpiredError.cs" />
+    <Compile Include="Exceptions\DigitalSignatureError.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\DialogHelper.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
