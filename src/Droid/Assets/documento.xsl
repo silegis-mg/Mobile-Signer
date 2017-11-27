@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <xsl:stylesheet version="1.0" xmlns:lexml="http://www.lexml.gov.br/1.0" xmlns:ns1="http://www.w3.org/1999/xlink" xmlns:ns2="http://www.w3.org/1998/Math/MathML" xmlns:silegis="http://silegis.almg.gov.br/" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
 	<xsl:output indent="yes" omit-xml-declaration="yes"/>
   <xsl:strip-space elements="*"/>
@@ -67,6 +67,21 @@
 
               .fecho {
                   margin-top: 0.85cm;
+              }
+              
+              h1.titulo, h1.capitulo, h1.secao, h1.subsecao {
+                  font-family: "Arial", sans-serif;
+                  font-size: 11pt;
+                  margin-bottom: 0.85cm;
+                  margin-top: 0.85cm;
+              }
+              
+              h1.capitulo {
+                  font-weight: normal;
+              }
+              
+              h1.secao, h1.subsecao {
+                  text-transform: none;
               }
 
             </xsl:comment>
@@ -227,9 +242,45 @@
   
   <!-- INICIO ARTICULACAO -->
 	<xsl:template match="lexml:Articulacao">
-		  <xsl:apply-templates select="lexml:Artigo"/>
+		  <xsl:apply-templates/>
 	</xsl:template>	
 
+  <xsl:template match="lexml:Titulo">
+		  <h1 class="titulo">
+			    <xsl:apply-templates select="lexml:Rotulo"/>
+          <br/>
+          <xsl:apply-templates select="lexml:NomeAgrupador"/>
+		  </h1>
+      <xsl:apply-templates select="lexml:Capitulo|lexml:Artigo"/>
+  </xsl:template>
+  
+  <xsl:template match="lexml:Capitulo">
+		  <h1 class="capitulo">
+			    <xsl:apply-templates select="lexml:Rotulo"/>
+          <br/>
+          <xsl:apply-templates select="lexml:NomeAgrupador"/>
+		  </h1>
+      <xsl:apply-templates select="lexml:Secao|lexml:Artigo"/>
+  </xsl:template>
+
+  <xsl:template match="lexml:Secao">
+		  <h1 class="secao">
+			    <xsl:apply-templates select="lexml:Rotulo"/>
+          <br/>
+          <xsl:apply-templates select="lexml:NomeAgrupador"/>
+		  </h1>
+      <xsl:apply-templates select="lexml:Subsecao|lexml:Artigo"/>
+  </xsl:template>
+
+  <xsl:template match="lexml:Subsecao">
+		  <h1 class="subsecao">
+			    <xsl:apply-templates select="lexml:Rotulo"/>
+          <br/>
+          <xsl:apply-templates select="lexml:NomeAgrupador"/>
+		  </h1>
+      <xsl:apply-templates select="lexml:Artigo"/>
+  </xsl:template>
+      
 	<xsl:template match="lexml:Artigo">
 		  <p>
 			    <xsl:value-of select="lexml:Rotulo"/>
@@ -238,7 +289,7 @@
 		  </p>
       <xsl:apply-templates select="lexml:Paragrafo"/>
   </xsl:template>
-
+  
   <xsl:template match="lexml:p">
       <xsl:apply-templates/>
   </xsl:template>

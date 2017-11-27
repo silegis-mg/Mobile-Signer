@@ -22,6 +22,11 @@ namespace Almg.MobileSigner.Helpers
 			return GetBaseApiURL() + "/api/v1/certificate/get";
 		}
 
+        public static string GetCertificateHashURL()
+        {
+            return GetBaseApiURL() + "/api/v1/certificate/hash";
+        }
+
         public static string GetLoginTokenURL()
         {
             return GetBaseApiURL() + "/api/v1/login/token";
@@ -71,6 +76,11 @@ namespace Almg.MobileSigner.Helpers
         public static string GetDocumentPDF(string id)
         {
             return GetBaseApiURL() + "/api/v1/documentos?id=" + id + "&formato=application%2Fpdf";
+        }
+
+        public static string GetXSLT()
+        {
+            return GetBaseApiURL() + "/api/v1/xslt/get";
         }
 
         public static string GetDocumentAuthors(string id)

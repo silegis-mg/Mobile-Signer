@@ -7,45 +7,24 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Almg.MobileSigner.Pages.Signature
 {
     public class TextPage: ContentPage
     {
-        private string Xslt;
         private BaseInboxMessage request;
-        private Document document;
 
         public TextPage(BaseInboxMessage request, Document document, bool showSignButton, EventHandler OnAssinar)
         {
             this.request = request;
-            this.document = document;
             this.Title = "Texto";
             if (Device.OS == TargetPlatform.iOS)
                 this.Icon = (FileImageSource)FileImageSource.FromFile("text.png");
 
-            var localFileLoader = DependencyService.Get<IResourceLoader>();
-            using (Stream streamXslt = localFileLoader.OpenFile("documento.xsl"))
-            {
-                Xslt = StreamHelper.StreamToString(streamXslt);
-            }
-
             var html = new HtmlWebViewSource();
-            if (document.Content != null)
-            {
-                string text = Encoding.UTF8.GetString(document.Content, 0, document.Content.Length);
-                string docHtml = XmlHelper.Transform(Xslt, text);
-
-                if (Device.OS != TargetPlatform.iOS)
-                {
-                    //Existe um bug no WebView do iOS: https://developer.xamarin.com/guides/xamarin-forms/working-with/webview/
-                    html.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
-                }
-
-                html.Html = docHtml;
-            }
-
+            
             var browser = new CustomWebView
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -92,7 +71,39 @@ namespace Almg.MobileSigner.Pages.Signature
                 this.Content = browser;
             }
 
+            GetXSLT().ContinueWith(action =>
+            {
+                if(action.IsCompleted && !action.IsFaulted)
+                {
+                    LoadHTML(html, document, action.Result);
+                }
+            });
+
             CreateInfoToolbarItem(this);
+        }
+
+        private void LoadHTML(HtmlWebViewSource html, Document document, string xslt)
+        {
+			if (document.Content != null)
+			{
+				string text = Encoding.UTF8.GetString(document.Content, 0, document.Content.Length);
+				string docHtml = XmlHelper.Transform(xslt, text);
+
+				if (Device.OS != TargetPlatform.iOS)
+				{
+					//Existe um bug no WebView do iOS: https://developer.xamarin.com/guides/xamarin-forms/working-with/webview/
+					html.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
+					html.Html = docHtml;
+				}
+				else
+				{
+					//iOS requires this action on the main UI thread
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        html.Html = docHtml;
+                    });
+				}
+            }
         }
 
         private void CreateInfoToolbarItem(ContentPage page)
@@ -107,6 +118,32 @@ namespace Almg.MobileSigner.Pages.Signature
             });
 
             page.ToolbarItems.Add(ti);
+        }
+
+        private static string Xslt = null;
+
+        private async Task<string> GetXSLT()
+        {
+            using(var progress = DialogHelper.ShowProgress(AppResources.LOADING_DOCUMENT))
+            {
+                if (Xslt == null)
+                {
+                    try
+                    {
+                        Xslt = await HttpRequest.GetStr(EndPointHelper.GetXSLT());
+                    }
+                    catch (Exception e)
+                    {
+                        //caso não seja possível obter o xslt, utiliza a versão embutida na app.
+                        var localFileLoader = DependencyService.Get<IResourceLoader>();
+                        using (Stream streamXslt = localFileLoader.OpenFile("documento.xsl"))
+                        {
+                            Xslt = StreamHelper.StreamToString(streamXslt);
+                        }
+                    }
+                }
+                return Xslt;
+            }
         }
     }
 }
