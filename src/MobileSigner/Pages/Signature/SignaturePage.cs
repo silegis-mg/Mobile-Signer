@@ -1,4 +1,5 @@
-﻿using Almg.MobileSigner.Helpers;
+﻿using Almg.MobileSigner.Exceptions;
+using Almg.MobileSigner.Helpers;
 using Almg.MobileSigner.Model;
 using Almg.MobileSigner.Pages.PDF;
 using Almg.MobileSigner.Pages.Signature;
@@ -60,7 +61,7 @@ namespace Almg.MobileSigner.Pages
             try
             {
                 await SignerHelper.Sign(this.SignatureRequest);
-                tcs.SetResult(true);
+                tcs.TrySetResult(true);
                 await Navigation.PopAsync();
             } catch (DigitalSignatureError ex) {
                 DialogHelper.ShowMessage(ex.Message);
