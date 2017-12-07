@@ -6,6 +6,7 @@ using Org.BouncyCastle.Pkcs;
 using Org.BouncyCastle.X509;
 using Org.BouncyCastle.Crypto;
 using System.Linq;
+using Org.BouncyCastle.Crypto.Digests;
 
 namespace Almg.MobileSigner.Helpers
 {
@@ -73,6 +74,19 @@ namespace Almg.MobileSigner.Helpers
                 return false;
             }
 		}
+
+        public static async Task<String> GetSha1Hash()
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                if (await LoadFileTo(stream))
+                {
+                    return HashUtil.SHA1(stream);
+                } else {
+                    return null;
+                }
+            }
+        }
 
         public static PfxEntry Load(Stream pfx, string password)
         {

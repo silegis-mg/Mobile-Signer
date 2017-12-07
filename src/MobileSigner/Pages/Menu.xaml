@@ -10,35 +10,42 @@
         <StackLayout VerticalOptions="FillAndExpand">
           <Image x:Name="imageLogo" Source="Logotipo.png" HeightRequest="140" Margin="0, 10, 0, 0"/>
 
-          <custom:MenuTableView x:Name="tableView">
-            <TableRoot>
-              <TableSection>
+            <custom:MenuTableView x:Name="tableView">
+                <TableRoot>
+                    <TableSection>
 
-                <ViewCell Tapped="OnViewCellTappedRequests">
-                  <StackLayout Padding="15, 5, 15, 5" Orientation="Horizontal">
-                    <Image Source="document.png" />
-                    <Label Text="Requisições" VerticalOptions="Center" />
-                  </StackLayout>
-                </ViewCell>
+                        <ViewCell Tapped="OnViewCellTappedRequests">
+                            <StackLayout Padding="15, 5, 15, 5" Orientation="Horizontal">
+                                <Image Source="document.png" />
+                                <Label Text="Requisições" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
 
-                <ViewCell Tapped="OnViewCellTappedSigned">
-                  <StackLayout Padding="15, 5, 15, 5" Orientation="Horizontal">
-                    <Image Source="sign.png" />
-                    <Label Text="Assinadas" VerticalOptions="Center" />
-                  </StackLayout>
-                </ViewCell>
+                        <ViewCell Tapped="OnViewCellTappedSigned">
+                            <StackLayout Padding="15, 5, 15, 5" Orientation="Horizontal">
+                                <Image Source="sign.png" />
+                                <Label Text="Assinadas" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
 
-                <ViewCell Tapped="OnViewCellTappedLogout">
-                  <StackLayout Padding="15, 5, 15, 5" Orientation="Horizontal">
-                    <Image Source="logout.png" />
-                    <Label Text="Logout" VerticalOptions="Center" />
-                  </StackLayout>
-                </ViewCell>
+                        <ViewCell Tapped="OnViewCellTappedConfig">
+                            <StackLayout Padding="15, 5, 15, 5" Orientation="Horizontal">
+                                <Image Source="gear.png" />
+                                <Label Text="Configurações" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
 
-              </TableSection>
-            </TableRoot>
-          </custom:MenuTableView>
-          <Label FontSize="12" Text="" HorizontalOptions="EndAndExpand" VerticalOptions="Center" x:Name="lblVersion" />
+                        <ViewCell Tapped="OnViewCellTappedLogout">
+                            <StackLayout Padding="15, 5, 15, 5" Orientation="Horizontal">
+                                <Image Source="logout.png" />
+                                <Label Text="Logout" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+
+                    </TableSection>
+                </TableRoot>
+            </custom:MenuTableView>
+            <Label FontSize="12" Text="" HorizontalOptions="EndAndExpand" VerticalOptions="End" x:Name="lblVersion" />
         </StackLayout>
         
       </ContentPage.Content>

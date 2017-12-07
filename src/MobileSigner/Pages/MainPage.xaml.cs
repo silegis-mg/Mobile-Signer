@@ -17,7 +17,7 @@ namespace Almg.MobileSigner.Pages
         public MainPage()
         {
             InitializeComponent();
-            
+
             var menu = new Menu();
             Master = menu;
 
@@ -27,19 +27,24 @@ namespace Almg.MobileSigner.Pages
 
         private void GoToPendingSignatureList()
         {
-            var documents = new NavigationPage(new PendingRequestsPage(AppResources.SIGNATURE_REQUESTS));
-            Detail = documents;
+            var documents = new PendingRequestsPage(AppResources.SIGNATURE_REQUESTS);
+            Detail = new NavigationPage(documents);
         }
 
         private void GoToFinishedSignatureRequests()
         {
-            var documents = new NavigationPage(new SignedDocumentsPage());
-            Detail = documents;
+            var documents = new SignedDocumentsPage();
+            Detail = new NavigationPage(documents);
+        }
+
+        private void GoToConfig()
+        {
+			Detail = new NavigationPage(new ConfigPage());
         }
 
         private void OnMenuClicked(Menu.MenuItem item)
         {
-            switch(item)
+            switch (item)
             {
                 case Menu.MenuItem.LOGOUT:
                     Logout();
@@ -50,6 +55,9 @@ namespace Almg.MobileSigner.Pages
                 case Menu.MenuItem.SIGNED:
                     GoToFinishedSignatureRequests();
                     break;
+                case Menu.MenuItem.CONFIG:
+                    GoToConfig();
+                    break;
             }
             IsPresented = false;
         }
@@ -59,17 +67,18 @@ namespace Almg.MobileSigner.Pages
             Task<bool> task = DialogHelper.ShowConfirm(AppResources.APP_TITLE, AppResources.LOGOUT_CONFIRM);
             task.ContinueWith(t =>
             {
-                if(t.IsCompleted && t.Result)
+                if (t.IsCompleted && t.Result)
                 {
-                    Application.Current.Properties[Const.CONFIG_OK] = false;
-					Application.Current.SavePropertiesAsync();
+                    Application.Current.Properties[Const.CONFIG_API_KEY] = null;
+                    Application.Current.SavePropertiesAsync().Wait();
                     Pkcs12FileHelper.DeleteFile();
-					Device.BeginInvokeOnMainThread(() =>
-					{
-						Application.Current.MainPage = new LoginPage();
-					});
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        Application.Current.MainPage = new LoginPage();
+                    });
                 }
             });
         }
+
     }
 }

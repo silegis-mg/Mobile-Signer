@@ -64,7 +64,7 @@ namespace Almg.MobileSigner.Pages
 
 					Application.Current.Properties[Const.CONFIG_API_KEY] = authToken;
                     await Application.Current.SavePropertiesAsync();
-                    Application.Current.MainPage = new ConfigPage();
+                    Application.Current.MainPage = new CertPage();
 				}
 			}
             catch(HttpRequest.HttpException ex)

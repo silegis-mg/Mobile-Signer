@@ -408,4 +408,13 @@
   <data name="CERTIFICATE_EXPIRED" xml:space="preserve">
     <value>O certificado digital cadastrado no aplicativo está expirado e não pode ser utilizado para realizar novas assinaturas.</value>
   </data>
+  <data name="CERT_UPDATE_AVAILABLE" xml:space="preserve">
+    <value>Um novo certificado digital está disponível. Deseja realizar a instalação agora?</value>
+  </data>
+  <data name="CERT_UPDATE_FAILED" xml:space="preserve">
+    <value>Ocorreu um erro na atualização do certificado digital.</value>
+  </data>
+  <data name="CERT_UPDATE_NOT_REQUIRED" xml:space="preserve">
+    <value>O certificado digital já está na versão mais recente. A atualização não foi realizada.</value>
+  </data>
 </root>

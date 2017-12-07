@@ -9,12 +9,14 @@ using Almg.MobileSigner.Controllers;
 
 namespace Almg.MobileSigner
 {
-	public class App : Application
+
+    public class App : Application
 	{
-		public App ()
+        private LoginController loginController = new LoginController();
+        
+        public App ()
 		{
-            //bool configured = false;
-            bool loggedIn = new LoginController().IsLoggedIn();
+            bool loggedIn = loginController.IsLoggedIn();
             if (loggedIn)
 			{
                 ShowDocumentListPage();

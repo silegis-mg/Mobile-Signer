@@ -83,6 +83,7 @@ Global
 		{93362C73-AD00-4005-A841-150B7BC38A94}.Release|iPhone.Build.0 = Release|iPhone
 		{93362C73-AD00-4005-A841-150B7BC38A94}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{93362C73-AD00-4005-A841-150B7BC38A94}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{93362C73-AD00-4005-A841-150B7BC38A94}.Release|Any CPU.Build.0 = Release|iPhone
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

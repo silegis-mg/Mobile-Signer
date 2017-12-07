@@ -299,7 +299,10 @@ namespace Almg.MobileSigner.Pages
                 }
             };
 
-            LoadSignatureRequests(0);
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                Task.Run(() => LoadSignatureRequests(0));
+            });
         }
 
         private async Task LoadSignatureRequests(int page)
@@ -308,7 +311,6 @@ namespace Almg.MobileSigner.Pages
             var signatureRequests = await signatureRequestController.GetSignedDocuments(page, ITEM_PAGE_COUNT);
             requests.Update(signatureRequests, 0, page, page==0);
             listView.IsRefreshing = false;
-        }
-                
+        }   
     }
 }

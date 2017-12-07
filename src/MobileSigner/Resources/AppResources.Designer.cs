@@ -188,6 +188,32 @@ namespace Almg.MobileSigner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Um novo certificado digital está disponível. Deseja realizar a instalação agora?.
+        /// </summary>
+        public static string CERT_UPDATE_AVAILABLE {
+            get {
+                return ResourceManager.GetString("CERT_UPDATE_AVAILABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ocorreu um erro na atualização do certificado digital..
+        /// </summary>
+        public static string CERT_UPDATE_FAILED {
+            get {
+                return ResourceManager.GetString("CERT_UPDATE_FAILED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O certificado digital já está na versão mais recente. A atualização não foi realizada..
+        /// </summary>
+        public static string CERT_UPDATE_NOT_REQUIRED {
+            get {
+                return ResourceManager.GetString("CERT_UPDATE_NOT_REQUIRED", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to O certificado digital cadastrado no aplicativo está expirado e não pode ser utilizado para realizar novas assinaturas..
         /// </summary>

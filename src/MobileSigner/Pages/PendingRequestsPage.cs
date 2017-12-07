@@ -24,16 +24,13 @@ namespace Almg.MobileSigner.Pages
 
 		private SignatureRequestController signatureRequestsCtrl = new SignatureRequestController();
 		private Dictionary<string, MessageCollection<SignatureRequest>> signatureRequestGroups = new Dictionary<string, MessageCollection<SignatureRequest>>();
-
-		private AppUpdateController updateCtrl = new AppUpdateController();
+		private AppUpdateController appUpdateCtrl = new AppUpdateController();
 
 		private async Task LoadSignatureRequests(DocumentListType documentListType, int page)
 		{
 			try
 			{
-				await updateCtrl.CheckUpdate();
-
-				List<Task<SignatureRequestInboxPage>> tasks = new List<Task<SignatureRequestInboxPage>>();
+                List<Task<SignatureRequestInboxPage>> tasks = new List<Task<SignatureRequestInboxPage>>();
 				Task<SignatureRequestInboxPage> requestsMine = null;
 				Task<SignatureRequestInboxPage> requestsOthers = null;
 
@@ -48,7 +45,7 @@ namespace Almg.MobileSigner.Pages
 					requestsOthers = signatureRequestsCtrl.GetSignatureRequests(OTHER, ShowArchived, page, ITEM_PAGE_COUNT);
 					tasks.Add(requestsOthers);
 				}
-
+				await appUpdateCtrl.CheckAppUpdate();
 				await Task.WhenAll(tasks.ToArray());
 
 				if (requestsMine != null)

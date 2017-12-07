@@ -13,7 +13,7 @@ namespace Almg.MobileSigner.Controllers
 {
     public class AppUpdateController
     {
-        public async Task CheckUpdate()
+        public async Task CheckAppUpdate()
         {
             if(DeviceInfo.Connectivity.InternetReachability == NetworkReachability.NotReachable)
             {
@@ -29,7 +29,10 @@ namespace Almg.MobileSigner.Controllers
                 bool yes = await DialogHelper.ShowConfirm(AppResources.APP_TITLE, AppResources.UPDATE_APP);
                 if (yes)
                 {
-                    updateApp.Update();
+					Device.BeginInvokeOnMainThread(() =>
+					{
+						updateApp.Update();
+					});
                 }
             }
         }

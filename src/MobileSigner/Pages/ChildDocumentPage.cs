@@ -1,5 +1,6 @@
 ﻿using Acr.UserDialogs;
 using Almg.MobileSigner.Components;
+using Almg.MobileSigner.Exceptions;
 using Almg.MobileSigner.Helpers;
 using Almg.MobileSigner.Model;
 using Almg.MobileSigner.Resources;

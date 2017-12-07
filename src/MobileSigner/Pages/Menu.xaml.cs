@@ -14,7 +14,7 @@ namespace Almg.MobileSigner.Pages
     {
         public enum MenuItem
         {
-            REQUESTS, SIGNED, LOGOUT
+            REQUESTS, SIGNED, LOGOUT, CONFIG
         }
 
         public delegate void SelectedMenuItem(MenuItem menu);
@@ -42,6 +42,11 @@ namespace Almg.MobileSigner.Pages
         protected void OnViewCellTappedLogout(object sender, EventArgs e)
         {
             MenuItemClicked(MenuItem.LOGOUT);
+        }
+
+        protected void OnViewCellTappedConfig(object sender, EventArgs e)
+        {
+            MenuItemClicked(MenuItem.CONFIG);
         }
     }
 }

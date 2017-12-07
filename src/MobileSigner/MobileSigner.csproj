@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;DESENVOLVIMENTO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -41,6 +41,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Controllers\ActionController.cs" />
     <Compile Include="Controllers\AppUpdateController.cs" />
+    <Compile Include="Controllers\CertUpdateController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\DialogHelper.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\HashUtil.cs" />
     <Compile Include="Helpers\HtmlHelper.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\SignerHelper.cs" />
@@ -74,6 +76,9 @@
     <Compile Include="Model\SignatureRequest.cs" />
     <Compile Include="Pages\AttachmentsPage.xaml.cs">
       <DependentUpon>AttachmentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConfigPage.xaml.cs">
+      <DependentUpon>ConfigPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SignedDocumentsPage.cs" />
     <Compile Include="Pages\Signature\SignaturePage.cs" />
@@ -110,8 +115,8 @@
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ConfigPage.xaml.cs">
-      <DependentUpon>ConfigPage.xaml</DependentUpon>
+    <Compile Include="Pages\CertPage.xaml.cs">
+      <DependentUpon>CertPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\StreamHelper.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
@@ -216,7 +221,7 @@
     <EmbeddedResource Include="Pages\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ConfigPage.xaml">
+    <EmbeddedResource Include="Pages\CertPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\AppResources.resx">
@@ -266,6 +271,12 @@
     <EmbeddedResource Include="Resources\Icons\fileicon_txt.png" />
     <EmbeddedResource Include="Resources\Icons\fileicon_xls.png" />
     <EmbeddedResource Include="Resources\Icons\fileicon_zip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ConfigPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

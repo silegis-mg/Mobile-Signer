@@ -43,11 +43,11 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignKey>iPhone Distribution: Assembleia Legislativa do Estado de Minas Gerais</CodesignKey>
-    <CodesignProvision>4056a359-10ba-402b-a257-ffbf4503f249</CodesignProvision>
+    <CodesignProvision>Silegis Distribution Profile</CodesignProvision>
     <BuildIpa>true</BuildIpa>
     <IpaPackageName>br.gov.almg.silegis</IpaPackageName>
     <IpaMetadata>silegis.plist</IpaMetadata>
-    <MtouchSdkVersion>10.2</MtouchSdkVersion>
+    <MtouchSdkVersion>11.1</MtouchSdkVersion>
     <MtouchExtraArgs>--nolinkaway</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
@@ -70,20 +70,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchFloat32>true</MtouchFloat32>
     <MtouchDebug>true</MtouchDebug>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
-    <CodesignKey>iPhone Distribution: Assembleia Legislativa do Estado de Minas Gerais</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <IpaPackageName>br.gov.almg.mobilesigner</IpaPackageName>
     <BuildIpa>true</BuildIpa>
     <IpaIncludeArtwork>true</IpaIncludeArtwork>
-    <CodesignProvision>Silegis Distribution Profile</CodesignProvision>
-    <MtouchSdkVersion>10.2</MtouchSdkVersion>
     <CodesignProvision>
     </CodesignProvision>
-    <MtouchSdkVersion></MtouchSdkVersion>
+    <MtouchSdkVersion>11.1</MtouchSdkVersion>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchExtraArgs>--nolinkaway</MtouchExtraArgs>
   </PropertyGroup>
@@ -643,7 +641,9 @@
     <BundleResource Include="Resources\text.png" />
     <BundleResource Include="Resources\sign.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\gear.png" />
+  </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork" />
   </ItemGroup>
