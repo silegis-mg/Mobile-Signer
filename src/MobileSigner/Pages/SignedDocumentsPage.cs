@@ -301,7 +301,7 @@ namespace Almg.MobileSigner.Pages
 
             Device.BeginInvokeOnMainThread(() =>
             {
-                Task.Run(() => LoadSignatureRequests(0));
+                LoadSignatureRequests(0);
             });
         }
 

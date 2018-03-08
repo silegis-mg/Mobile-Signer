@@ -81,11 +81,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Almg.Signer.XAdES, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Almg.Signer.XAdES.1.1.0\lib\MonoAndroid10\Almg.Signer.XAdES.dll</HintPath>
+      <HintPath>..\packages\Almg.Signer.XAdES.1.2.1\lib\MonoAndroid10\Almg.Signer.XAdES.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Almg.Signer.XAdES.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Almg.Signer.XAdES.1.1.0\lib\MonoAndroid10\Almg.Signer.XAdES.Interfaces.dll</HintPath>
+      <HintPath>..\packages\Almg.Signer.XAdES.1.2.1\lib\MonoAndroid10\Almg.Signer.XAdES.Interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="crypto, Version=1.7.0.0, Culture=neutral, PublicKeyToken=52d7d8cd84e8295f, processorArchitecture=MSIL">

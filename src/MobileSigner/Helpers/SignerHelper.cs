@@ -27,7 +27,7 @@ namespace Almg.MobileSigner.Helpers
             using (Stream streamXslt = localFileLoader.OpenFile("PA_AD_RA_v2_3.xml"))
             {
                 byte[] policyFileData = StreamHelper.StreamToByteArray(streamXslt);
-                policy = new PolicyIdentifier("http://politicas.icpbrasil.gov.br/PA_AD_RA_v2_3.xml", policyFileData);
+                policy = new PolicyIdentifier("http://politicas.icpbrasil.gov.br/PA_AD_RA_v2_3.xml", policyFileData, "qipT2sA6/iY9Z14EeVBdoiDWxdqsu5WEuY23mxbADmE=");
             }
         }
 

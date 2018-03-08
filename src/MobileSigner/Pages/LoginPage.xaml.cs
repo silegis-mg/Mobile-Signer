@@ -9,10 +9,11 @@ using Acr.DeviceInfo;
 using Almg.MobileSigner.Model;
 using Almg.MobileSigner.Resources;
 using Almg.MobileSigner.Controllers;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Almg.MobileSigner.Pages
 {
-
 	public partial class LoginPage : ContentPage
 	{
         private bool userNamePasswordLogin = true;

@@ -47,19 +47,23 @@
     <BuildIpa>true</BuildIpa>
     <IpaPackageName>br.gov.almg.silegis</IpaPackageName>
     <IpaMetadata>silegis.plist</IpaMetadata>
-    <MtouchSdkVersion>11.1</MtouchSdkVersion>
+    <MtouchSdkVersion>11.2</MtouchSdkVersion>
     <MtouchExtraArgs>--nolinkaway</MtouchExtraArgs>
+    <IpaIncludeArtwork>true</IpaIncludeArtwork>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
-    <DebugType>full</DebugType>
+    <DebugType></DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>i386</MtouchArch>
-    <MtouchLink>None</MtouchLink>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchLink>Full</MtouchLink>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>Silegis Distribution Profile</CodesignProvision>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -79,10 +83,9 @@
     <IpaPackageName>br.gov.almg.mobilesigner</IpaPackageName>
     <BuildIpa>true</BuildIpa>
     <IpaIncludeArtwork>true</IpaIncludeArtwork>
-    <CodesignProvision>
-    </CodesignProvision>
-    <MtouchSdkVersion>11.1</MtouchSdkVersion>
-    <MtouchLink>SdkOnly</MtouchLink>
+    <CodesignProvision>Silegis Distribution 2018</CodesignProvision>
+    <MtouchSdkVersion>11.2</MtouchSdkVersion>
+    <MtouchLink>Full</MtouchLink>
     <MtouchExtraArgs>--nolinkaway</MtouchExtraArgs>
   </PropertyGroup>
   <ItemGroup>
@@ -140,12 +143,6 @@
     <Reference Include="ToastIOS">
       <HintPath>..\..\..\..\..\..\Componentes\ToastIOS-1.6\lib\ios-unified\ToastIOS.dll</HintPath>
     </Reference>
-    <Reference Include="Almg.Signer.XAdES">
-      <HintPath>..\packages\Almg.Signer.XAdES.1.1.0\lib\Xamarin.iOS10\Almg.Signer.XAdES.dll</HintPath>
-    </Reference>
-    <Reference Include="Almg.Signer.XAdES.Interfaces">
-      <HintPath>..\packages\Almg.Signer.XAdES.1.1.0\lib\Xamarin.iOS10\Almg.Signer.XAdES.Interfaces.dll</HintPath>
-    </Reference>
     <Reference Include="Firebase.Core">
       <HintPath>..\packages\Xamarin.Firebase.iOS.Core.3.4.6\lib\Xamarin.iOS10\Firebase.Core.dll</HintPath>
     </Reference>
@@ -169,6 +166,12 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Almg.Signer.XAdES">
+      <HintPath>..\packages\Almg.Signer.XAdES.1.2.1\lib\Xamarin.iOS10\Almg.Signer.XAdES.dll</HintPath>
+    </Reference>
+    <Reference Include="Almg.Signer.XAdES.Interfaces">
+      <HintPath>..\packages\Almg.Signer.XAdES.1.2.1\lib\Xamarin.iOS10\Almg.Signer.XAdES.Interfaces.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

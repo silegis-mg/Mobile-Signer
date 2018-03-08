@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;DESENVOLVIMENTO</DefineConstants>
+    <DefineConstants>DEBUG;HOMOLOGACAO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -144,12 +144,12 @@
       <HintPath>..\packages\Acr.UserDialogs.6.3.3\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.Interface.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Almg.Signer.XAdES, Version=1.0.6281.18138, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Almg.Signer.XAdES.1.1.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Almg.Signer.XAdES.dll</HintPath>
+    <Reference Include="Almg.Signer.XAdES, Version=1.0.6631.16605, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Almg.Signer.XAdES.1.2.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Almg.Signer.XAdES.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Almg.Signer.XAdES.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Almg.Signer.XAdES.1.1.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Almg.Signer.XAdES.Interfaces.dll</HintPath>
+      <HintPath>..\packages\Almg.Signer.XAdES.1.2.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Almg.Signer.XAdES.Interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="crypto, Version=1.7.0.0, Culture=neutral, PublicKeyToken=52d7d8cd84e8295f, processorArchitecture=MSIL">
